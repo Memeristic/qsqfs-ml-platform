@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data and results are never committed. They are regenerated, not shipped.
+#
+# NOTE THE LEADING SLASH. A bare "data/" would also match "src/data/" and
+# silently exclude a source package from the repository -- which is exactly
+# what happened before this was fixed. The leading slash anchors the rule to
+# the project root.
+/data/
+/run_results/
+*.tgz
+
+# Archives, except the ones a script needs
+*.zip
+!scripts/*.zip
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

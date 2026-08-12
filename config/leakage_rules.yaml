@@ -1,0 +1,80 @@
+# Domain rule sets for target-proxy detection.
+#
+# A match produces a WARNING, not a deletion. Only exact duplicates of the
+# target are removed automatically -- a strong correlation may be the real
+# clinical signal you are looking for, and silently deleting it would hide
+# your own result from you.
+#
+# 'generic' contains no clinical terms on purpose. Running with
+# --domain generic will not warn about glucose columns. Pass the domain that
+# matches your target.
+
+generic:
+  target_proxies:
+    - target
+    - label
+    - ground truth
+    - true label
+    - outcome copy
+    - prediction
+    - predicted
+    - score
+
+diabetes:
+  target_proxies:
+    - glucose
+    - hba1c
+    - a1c
+    - glycated haemoglobin
+    - glycated hemoglobin
+    - insulin
+    - c peptide
+    - ogtt
+    - glucose tolerance
+    - fructosamine
+  medications:
+    - metformin
+    - glipizide
+    - glyburide
+    - pioglitazone
+    - sitagliptin
+    - liraglutide
+    - semaglutide
+    - antidiabetic
+  diagnosis:
+    - diabetes diagnosis
+    - diabetes code
+    - diabetes medication
+
+mortality:
+  target_proxies:
+    - death
+    - died
+    - deceased
+    - expire
+    - date of death
+    - dod
+    - discharge disposition
+    - hospice
+    - time of death
+
+readmission:
+  target_proxies:
+    - readmit
+    - readmission
+    - days to readmission
+    - next admission
+    - return visit
+    - bounce back
+
+sepsis:
+  target_proxies:
+    - sofa
+    - qsofa
+    - sirs
+    - lactate
+    - blood culture
+  medications:
+    - vasopressor
+    - norepinephrine
+    - antibiotic start

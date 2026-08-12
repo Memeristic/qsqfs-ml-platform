@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qsqfs-ml-platform"
+version = "1.0.0"
+description = "Quorum Sensing / Quorum Quenching feature selection with a tabular Transformer"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24", "pandas>=2.0", "scipy>=1.10", "scikit-learn>=1.3",
+    "pyyaml>=6.0", "torch>=2.0", "matplotlib>=3.7", "streamlit>=1.30",
+    "openpyxl>=3.1", "pyarrow>=12.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::UserWarning"]

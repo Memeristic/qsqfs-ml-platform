@@ -1,0 +1,42 @@
+# ============================================================================
+# ONE requirements file. Works locally and on Streamlit Community Cloud.
+# Do NOT rename this file. There is no second version to swap in.
+# ============================================================================
+
+# Core
+numpy>=1.24,<3
+pandas>=2.0,<3          # pandas 3.x changes string handling; not yet supported
+scipy>=1.10
+scikit-learn>=1.3
+pyyaml>=6.0
+
+# File formats
+openpyxl>=3.1           # .xlsx
+pyarrow>=12.0           # .parquet, and used internally by pandas/streamlit
+
+# Figures
+matplotlib>=3.7
+pillow>=9.0             # image modality, and figure export
+
+# Web interface
+streamlit>=1.30
+
+# Tests
+pytest>=7.4
+
+# ---------------------------------------------------------------------------
+# PyTorch is OPTIONAL and deliberately not listed here.
+#
+# It is ~200 MB and Streamlit Community Cloud allows about 1 GB of memory, so
+# including it makes hosted deployments fail unpredictably. Without it the app
+# still runs everything except the Transformer: validation, leakage screening,
+# QSQ-FS feature selection, all five classical baselines, hyperparameter
+# tuning, every figure and every statistical table. The app detects its absence,
+# says so on screen, and continues -- it does not pretend a Transformer ran.
+#
+# To use the Transformer on your own machine, install it separately:
+#
+#     python -m pip install torch torchvision
+#
+# That is the ONLY difference between a local install and the hosted app.
+# ---------------------------------------------------------------------------
